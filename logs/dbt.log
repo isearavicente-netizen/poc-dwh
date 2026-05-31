@@ -1,0 +1,31 @@
+[0m16:20:51.303470 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF1D640590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF1D6329D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF1D438090>]}
+
+
+============================== 16:20:51.307470 | 06787d99-c4cd-402a-acd3-5fb4a394fc26 ==============================
+[0m16:20:51.307470 [info ] [MainThread]: Running with dbt=1.11.11
+[0m16:20:51.308470 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\iagos\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt init svc_orders_dbt', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m16:20:51.332248 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\iagos\.dbt
+[0m16:20:51.334247 [debug] [MainThread]: Starter project path: C:\Users\iagos\Desktop\TFM\poc-dwh\airflow_env\Lib\site-packages\dbt\include\starter_project
+[0m16:20:51.385421 [info ] [MainThread]: 
+Your new dbt project "svc_orders_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m16:20:51.386423 [info ] [MainThread]: Setting up your profile.
+[0m16:21:02.443995 [info ] [MainThread]: oracle adapter: Running in thin mode
+[0m16:23:11.927570 [info ] [MainThread]: Profile svc_orders_dbt written to C:\Users\iagos\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m16:23:11.930917 [debug] [MainThread]: Command `dbt init` succeeded at 16:23:11.929572 after 140.70 seconds
+[0m16:23:11.931929 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF1D335090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF1D697710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF1D697310>]}
+[0m16:23:11.932936 [debug] [MainThread]: Flushing usage events
+[0m16:23:12.927575 [debug] [MainThread]: An error was encountered while trying to flush usage events
