@@ -2,3 +2,7 @@ airflow_env/
 __pycache__/ 
 *.pyc 
 .env 
+airflow/logs/
+airflow/config/
+svc_orders_dbt/target/
+svc_orders_dbt/dbt_packages/
