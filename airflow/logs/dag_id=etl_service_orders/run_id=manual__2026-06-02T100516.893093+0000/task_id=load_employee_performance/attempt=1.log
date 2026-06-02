@@ -1,0 +1,22 @@
+[2026-06-02T10:05:25.083+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-02T10:05:25.136+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_service_orders.load_employee_performance manual__2026-06-02T10:05:16.893093+00:00 [queued]>
+[2026-06-02T10:05:25.149+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_service_orders.load_employee_performance manual__2026-06-02T10:05:16.893093+00:00 [queued]>
+[2026-06-02T10:05:25.150+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2026-06-02T10:05:25.170+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): load_employee_performance> on 2026-06-02 10:05:16.893093+00:00
+[2026-06-02T10:05:25.191+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=182) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-06-02T10:05:25.197+0000] {standard_task_runner.py:63} INFO - Started process 201 to run task
+[2026-06-02T10:05:25.193+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'etl_service_orders', 'load_employee_performance', 'manual__2026-06-02T10:05:16.893093+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl_service_orders.py', '--cfg-path', '/tmp/tmp6vuvpv3g']
+[2026-06-02T10:05:25.204+0000] {standard_task_runner.py:91} INFO - Job 7: Subtask load_employee_performance
+[2026-06-02T10:05:25.347+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_service_orders.load_employee_performance manual__2026-06-02T10:05:16.893093+00:00 [running]> on host 7284cdb9ebc5
+[2026-06-02T10:05:25.478+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='svc_orders' AIRFLOW_CTX_DAG_ID='etl_service_orders' AIRFLOW_CTX_TASK_ID='load_employee_performance' AIRFLOW_CTX_EXECUTION_DATE='2026-06-02T10:05:16.893093+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-06-02T10:05:16.893093+00:00'
+[2026-06-02T10:05:25.482+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-02T10:05:25.550+0000] {dag_etl_service_orders.py:113} INFO - Loading DWH_EMPLOYEE_PERFORMANCE...
+[2026-06-02T10:05:25.607+0000] {dag_etl_service_orders.py:145} INFO - DWH_EMPLOYEE_PERFORMANCE loaded: 8 rows
+[2026-06-02T10:05:25.613+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-06-02T10:05:25.614+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-02T10:05:25.633+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=etl_service_orders, task_id=load_employee_performance, execution_date=20260602T100516, start_date=20260602T100525, end_date=20260602T100525
+[2026-06-02T10:05:25.700+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-06-02T10:05:25.730+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-02T10:05:25.733+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

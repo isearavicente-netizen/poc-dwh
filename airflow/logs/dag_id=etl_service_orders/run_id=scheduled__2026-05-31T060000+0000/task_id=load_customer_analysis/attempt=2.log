@@ -1,0 +1,70 @@
+[2026-06-01T11:34:57.020+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-01T11:34:57.035+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_service_orders.load_customer_analysis scheduled__2026-05-31T06:00:00+00:00 [queued]>
+[2026-06-01T11:34:57.042+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_service_orders.load_customer_analysis scheduled__2026-05-31T06:00:00+00:00 [queued]>
+[2026-06-01T11:34:57.043+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 2
+[2026-06-01T11:34:57.056+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): load_customer_analysis> on 2026-05-31 06:00:00+00:00
+[2026-06-01T11:34:57.064+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=4537) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-06-01T11:34:57.065+0000] {standard_task_runner.py:63} INFO - Started process 4543 to run task
+[2026-06-01T11:34:57.065+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'etl_service_orders', 'load_customer_analysis', 'scheduled__2026-05-31T06:00:00+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/dag_etl_service_orders.py', '--cfg-path', '/tmp/tmpsgf5yabw']
+[2026-06-01T11:34:57.067+0000] {standard_task_runner.py:91} INFO - Job 36: Subtask load_customer_analysis
+[2026-06-01T11:34:57.101+0000] {task_command.py:426} INFO - Running <TaskInstance: etl_service_orders.load_customer_analysis scheduled__2026-05-31T06:00:00+00:00 [running]> on host d9d61125ccd9
+[2026-06-01T11:34:57.159+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='svc_orders' AIRFLOW_CTX_DAG_ID='etl_service_orders' AIRFLOW_CTX_TASK_ID='load_customer_analysis' AIRFLOW_CTX_EXECUTION_DATE='2026-05-31T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-05-31T06:00:00+00:00'
+[2026-06-01T11:34:57.161+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-01T11:34:57.168+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-01T11:34:57.169+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "src/oracledb/impl/thin/connection.pyx", line 421, in oracledb.thin_impl.ThinConnImpl._connect_with_address
+  File "src/oracledb/impl/thin/protocol.pyx", line 288, in oracledb.thin_impl.Protocol._connect_phase_one
+  File "src/oracledb/impl/thin/protocol.pyx", line 470, in oracledb.thin_impl.Protocol._process_message
+  File "src/oracledb/impl/thin/protocol.pyx", line 446, in oracledb.thin_impl.Protocol._process_message
+  File "src/oracledb/impl/thin/messages/connect.pyx", line 102, in oracledb.thin_impl.ConnectMessage.process
+  File "/home/airflow/.local/lib/python3.12/site-packages/oracledb/errors.py", line 199, in _raise_err
+    raise error.exc_type(error) from cause
+oracledb.exceptions.OperationalError: DPY-6000: Listener refused connection. (Similar to ORA-12518)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dag_etl_service_orders.py", line 152, in load_customer_analysis
+    conn = get_connection()
+           ^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dag_etl_service_orders.py", line 29, in get_connection
+    return oracledb.connect(DB_CONNECTION)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/oracledb/connection.py", line 1768, in connect
+    return conn_class(dsn=dsn, pool=pool, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/oracledb/connection.py", line 892, in __init__
+    impl.connect(params_impl)
+  File "src/oracledb/impl/thin/connection.pyx", line 544, in oracledb.thin_impl.ThinConnImpl.connect
+  File "src/oracledb/impl/thin/connection.pyx", line 540, in oracledb.thin_impl.ThinConnImpl.connect
+  File "src/oracledb/impl/thin/connection.pyx", line 482, in oracledb.thin_impl.ThinConnImpl._connect_with_params
+  File "src/oracledb/impl/thin/connection.pyx", line 463, in oracledb.thin_impl.ThinConnImpl._connect_with_description
+  File "src/oracledb/impl/thin/connection.pyx", line 425, in oracledb.thin_impl.ThinConnImpl._connect_with_address
+  File "/home/airflow/.local/lib/python3.12/site-packages/oracledb/errors.py", line 199, in _raise_err
+    raise error.exc_type(error) from cause
+oracledb.exceptions.OperationalError: DPY-6005: cannot connect to database (CONNECTION_ID=eE4IWwUO5zbHBOXW4p1dYQ==).
+DPY-6000: Listener refused connection. (Similar to ORA-12518)
+[2026-06-01T11:34:57.179+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=etl_service_orders, task_id=load_customer_analysis, execution_date=20260531T060000, start_date=20260601T113457, end_date=20260601T113457
+[2026-06-01T11:34:57.188+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 36 for task load_customer_analysis (DPY-6005: cannot connect to database (CONNECTION_ID=eE4IWwUO5zbHBOXW4p1dYQ==).
+DPY-6000: Listener refused connection. (Similar to ORA-12518); 4543)
+[2026-06-01T11:34:57.199+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-06-01T11:34:57.215+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-01T11:34:57.217+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,14 @@
+svc_orders_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: oracle
+      user: svc_orders
+      password: poc123
+      protocol: tcp
+      host: 172.24.32.1
+      port: 1521
+      service: xepdb1
+      database: XEPDB1
+      schema: svc_orders
+      threads: 4
