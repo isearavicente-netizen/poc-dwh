@@ -5,4 +5,4 @@ __pycache__/
 airflow/logs/
 airflow/config/
 svc_orders_dbt/target/
-svc_orders_dbt/dbt_packages/
+svc_orders_dbt/dbt_packages/logs/ 
