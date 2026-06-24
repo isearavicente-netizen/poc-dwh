@@ -14,22 +14,14 @@ El proyecto demuestra la migración progresiva de un pipeline ETL basado en PL/S
 - **Contenedores:** Docker
 
 ## Estructura del repositorio
-poc-dwh/
-├── sql/
-│   ├── setup/          # Creación de usuario y permisos
-│   ├── tables/         # Creación de tablas origen y destino
-│   ├── data/           # Datos sintéticos
-│   └── procedures/     # ETL legacy en PL/SQL y jobs
-├── airflow/
-│   ├── dags/           # DAGs de Airflow
-│   └── dbt/            # Proyecto DBT montado en Docker
-├── svc_orders_dbt/     # Proyecto DBT Core
-│   ├── models/
-│   │   ├── staging/    # Modelos de limpieza y estandarización
-│   │   └── marts/      # Modelos analíticos finales
-│   └── profiles.yml    # Configuración de conexión
-├── powerbi/            # Dashboards Power BI
-└── README.md
+| Carpeta           | Descripción                                           |
+| ----------------- | ----------------------------------------------------- |
+| `sql/`            | Scripts Oracle para setup, tablas, datos y ETL legacy |
+| `airflow/`        | Orquestación y ejecución de pipelines                 |
+| `svc_orders_dbt/` | Proyecto DBT Core con modelos analíticos              |
+| `powerbi/`        | Dashboards y reportes                                 |
+| `README.md`       | Documentación del proyecto                            |
+
 
 ## Cómo reproducir la POC
 
